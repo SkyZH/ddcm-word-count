@@ -1,0 +1,4 @@
+[submodule "ddcm"]
+	path = ddcm
+	url = https://github.com/SkyZH/ddcm-protocol.git
+	branch = release
