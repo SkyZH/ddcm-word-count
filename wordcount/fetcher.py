@@ -9,3 +9,4 @@ class Fetcher(object):
     def fetch(self):
         self.response = requests.get(self.url)
         self.data = self.response.text
+        return self.data
