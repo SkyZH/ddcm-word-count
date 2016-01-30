@@ -12,5 +12,6 @@ class ReaderTest(unittest.TestCase):
         fp.close()
 
     def test_read(self):
-        for dat in self.reader.parse():
-            self.assertIsNotNone(dat)
+        for sentence in self.reader.parse():
+            for word in sentence:
+                self.assertNotIn(' ', word)

@@ -20,6 +20,13 @@ class Reader(object):
         self.parser = SocoalHTMLParser()
         self.data = data
 
+    def word(self, data):
+        return iter(data.split(' '))
+
+    def sentence(self, data):
+        for sentence in iter(data):
+            yield self.word(sentence)
+
     def parse(self):
         self.parser.feed(self.data)
-        return iter(self.parser.data)
+        return self.sentence(self.parser.data)
