@@ -109,3 +109,25 @@ class ReducerTest(unittest.TestCase):
                 "https://skyzh.github.io/social-network-site/2.html",
                 "https://skyzh.github.io/social-network-site/6.html"
         ]))
+    def test_reducer_word(self):
+        reducer = wordcount.Reducer()
+        dataA = {
+            "to": [],
+            "done": [],
+            "words": {
+                "apple": 2,
+                "orange": 3
+            }
+        }
+        dataB = {
+            "to": [],
+            "done": [],
+            "words": {
+                "apple": 5,
+                "link": 1
+            }
+        }
+        data = reducer.do_reduce(dataA, dataB)
+        self.assertEqual(data["words"]["apple"], 7)
+        self.assertEqual(data["words"]["orange"], 3)
+        self.assertEqual(data["words"]["link"], 1)
