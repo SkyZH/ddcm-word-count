@@ -1,0 +1,30 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8964
+  },
+  "debug": {
+    "logging": {
+      "level": "INFO",
+      "format": "[%(levelname)s:%(name)s] %(asctime)-15s %(message)s"
+    },
+    "asyncio": {
+      "enabled": false
+    },
+    "events": {
+      "enabled": false
+    }
+  },
+  "node": {
+    "id": "9e936dd8926a14fe8b8c877f716e7e3909d88db5"
+  },
+  "kbucket": {
+    "ksize": 20
+  },
+  "commit": {
+    "url": "https://skyzh.github.io/social-network-site/0.html"
+  },
+  "query": {
+    "alpha": 3
+  }
+}
