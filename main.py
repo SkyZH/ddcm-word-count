@@ -35,7 +35,7 @@ def generate_url(size):
         n = random.randrange(100)
         yield "https://skyzh.github.io/social-network-site/" + str(n) + ".html"
 
-@utils.SpecifiedService("B")
+@utils.SpecifiedService("A")
 async def main(loop, config, service):
     logger = service.logger.get_logger("Main")
     logger.info("Preparing...")
