@@ -8,7 +8,7 @@ from . import const
 class FetcherTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        session = aiohttp.ClientSession(loop = loop)
+        session = aiohttp.ClientSession()
         cls.fetcher = wordcount.Fetcher(session, const.url)
 
     @unittest.skipIf(const.devel, "Development Environment")
