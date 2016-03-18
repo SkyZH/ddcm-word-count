@@ -1,4 +1,5 @@
 import unittest
+import aiohttp
 
 import wordcount
 
@@ -7,7 +8,8 @@ from . import const
 class FetcherTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.fetcher = wordcount.Fetcher(const.url)
+        session = aiohttp.ClientSession(loop = loop)
+        cls.fetcher = wordcount.Fetcher(session, const.url)
 
     @unittest.skipIf(const.devel, "Development Environment")
     def test_fetch(self):
