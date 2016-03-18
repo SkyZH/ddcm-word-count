@@ -1,12 +1,15 @@
-import requests
+import aiohttp
 
 class Fetcher(object):
-    def __init__(self, url):
+    def __init__(self, session, url):
         self.url = url
-        self.response = None
-        self.data = None
+        self.session = session
 
-    def fetch(self):
-        self.response = requests.get(self.url)
-        self.data = self.response.text
-        return self.data
+    async def fetch(self):
+        return (await self.fetch_page(self.session, self.url)).decode()
+
+    async def fetch_page(self, session, url):
+        with aiohttp.Timeout(60):
+            async with session.get(url) as response:
+                assert response.status == 200
+                return await response.read()
