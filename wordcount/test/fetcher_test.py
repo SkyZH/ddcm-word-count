@@ -13,6 +13,4 @@ class FetcherTest(unittest.TestCase):
 
     @unittest.skipIf(const.devel, "Development Environment")
     def test_fetch(self):
-        self.fetcher.fetch()
-        self.assertIsNotNone(self.fetcher.response)
-        self.assertIsNotNone(self.fetcher.data)
+        self.assertIsNotNone(self.fetcher.fetch())
